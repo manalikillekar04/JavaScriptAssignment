@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Time & Date</title>
+    <script>
+        let a;
+        let date;
+        let time;
+        const options = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleString(undefined, options);
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time + "<br>on " + date;
+            }, 1000);
+            function countryChange() {
+                var countryName = document.getElementById("countries").value;
+                if (countryName == "India") {
+                    document.getElementById("country").innerHTML =countryName;
+                    getTime("Asia/Kolkata");
+                }
+                else if (countryName == "America"){
+                    document.getElementById("country").innerHTML =countryName;
+                    getTime("America/New_York");
+                }
+                else if (countryName == "London"){
+                    document.getElementById("country").innerHTML =countryName;
+                    getTime("Europe/London");
+                }
+                else{
+                    document.getElementById("country").innerHTML ="India";
+                    getTime("Asia/Kolkata");
+                }
+            }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container my-4">
+          <div class="jumbotron">
+              <h1 class="display-4">Current time Is: <span id="time"></span></h1>
+             
+              <hr class="my-4">
+              <p>To show you the time for different countries</p>
+              <a class="btn btn-primary btn-lg" href="#" role="button">Browse Times</a>
+              <!-- Example single danger button -->
+
+    <!-- <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">India</a></li>
+      <li><a class="dropdown-item" href="#">America</a></li>
+      <li><a class="dropdown-item" href="#">London</a></li>
+      <li><a class="dropdown-item" href="#">UAE</a></li>
+      <li><a class="dropdown-item" href="#">China</a></li>
+      <li><a class="dropdown-item" href="#">Bangladesh</a></li>
+      <li><a class="dropdown-item" href="#">Brazil</a></li>
+       -->
+
+       <div class="row">
+           <div class="col-md-6 position-relative">
+               <select class="form-select" id="countries" aria-label="Default select example"
+               onchange=countryChange()>
+               <option selected>--Select Country--</option>
+               <option value="India">India</option>
+               <option value="America">America</option>
+               <option value="London">London</option>
+               <option value="India">China</option>
+               </select>
+           
+       </div>
+     
+
+  </div>
+          </div>
+          </div>
+        
+
+
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
