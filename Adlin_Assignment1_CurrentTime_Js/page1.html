@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body{
+          background-color: black;
+        }
+        header{
+            background-color: black;
+            color: rgb(165, 141, 92);
+            font-size: 120px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            padding: 20px;
+        
+        }
+
+        nav{
+            background-color: black;
+            height: 30px;
+         }
+
+         main{
+            background-image: linear-gradient(rgb(165, 141, 92), rgb(5, 16, 63));
+            color: cornsilk;
+            font-size: 14px;
+            height: 250px;
+           
+            
+         }
+
+         .c1 img{
+            height: 150px;
+            width: 20%;
+            border-radius:10px;
+            margin-bottom: 20px;
+            background: url(pic01.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            float: left;
+         }
+
+         
+.c2 p{
+    height: 200px;
+    border-radius:3px;
+    margin-bottom: 20px;
+    align-content: flex-end;
+    font-size: 20px;
+    padding-top: 20px;
+    
+
+}
+
+.f1{
+    background-color: black;
+    color:rgb(165, 141, 92) ;
+    height: 30px;
+}
+    </style>
+
+    <title>Assignment2</title>
+
+
+
+    <script>
+      window.onload=function(){
+        document.getElementById("country").innerHTML="India";
+        refresh();
+      }
+
+      let a;
+      let date;
+      let time;
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour: 'numeric', minute: 'numeric', second:  'numeric' };
+      const date_options={weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+      const time_options={hour: 'numeric', minute: 'numeric', second:  'numeric'};
+      function refresh(){
+        var refresh=1000;
+        mytime=setTimeout('countryChange()',refresh)
+      }
+
+      var getTime=function timeValue(timezone){
+      options.timeZone =timezone;
+      current_date=new Date();
+      date = current_date.toLocaleDateString(undefined,options);
+      new_date=new Date(date);
+      date_format = new_date.toLocaleDateString(undefined,date_options);
+      time_format = new_date.toLocaleTimeString(undefined,time_options);
+      document.getElementById("time").innerHTML= time_format +"<br>"+ date_format;
+      document.getElementById("timezone").innerHTML=timezone;
+
+
+      }
+
+      function countryChange(){
+        var cName= document.getElementById("countries").value;
+        if(cName=="India"){
+          document.getElementById("country").innerHTML=cName;
+          getTime("Asia/Kolkata");
+        }
+
+        else if(cName=="USA"){
+          document.getElementById("country").innerHTML=cName;
+          getTime("America/New_York");
+
+        }
+        else if(cName=="England"){
+          document.getElementById("country").innerHTML=cName;
+          getTime("Europe/London");
+
+        }
+        else{
+          document.getElementById("country").innerHTML="Please Choose a country";
+
+        }
+        refresh();
+      }
+      
+  </script>
+
+
+  </head>
+  <body>
+      <!-- HEADER TAG -->
+      <header>
+        <h1><img src="pic001.jpg" alt=""> IN TIME </h1>
+        
+      </header>
+
+      <!-- NAVIGATION BAR -->
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+              <li class="nav-item">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select the Country
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Africa</a></li>
+                  <li><a class="dropdown-item" href="#">USA</a></li>
+                  <li><a class="dropdown-item" href="#">Australia</a></li>
+                  <li><a class="dropdown-item" href="#">Japan</a></li>
+                  
+                  
+                </ul>
+              </li>
+
+              
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>  -->
+
+
+        
+        <!-- SERVICE BAR -->
+        <div class="container" style="background-image: url('back001.jpg');
+        background-size: cover; height:420px;object-fit: cover; padding-top:45px;">
+          <div class="row">
+            <div class="col-md-6" style="background-color: black; opacity: 70%; height: 350px; padding: 10px;margin-left: 276px; margin-top: 8px; font-family: 'Times New Roman', Times, serif;">
+              <div class="jumbotron">
+                <h5 class="display-6" style="color:rgb(240, 229, 207) ; margin-top: 20px; margin-left: 20px;">
+                  Country :   <span id="country"></span> <br>
+                  Time :  <span id="time"></span>
+                </h5>
+                <br>
+
+                <p id="timezone"></p>
+
+
+                <div class="row">
+                  <div class="col-md-4 positon-relative">
+                    <select class="form-select" id="countries">
+                      onchange=countryChange()
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="England">England</option>
+                    </select>
+                  </div>
+
+                  </div>
+                </div>
+                
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+     
+
+        <!---->
+        <footer>
+            <div class="f1" style="margin-left: 67px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: rgb(212, 195, 136);">
+                <b>By : ADLIN JOSPIN JOSEPH (185221)</b>
+            </div>
+            
+            
+        </footer>
+
+
+          
+
+    
+    <script src="js/bootstrap.js" ></script>
+
+    
+  </body>
+</html>
