@@ -1,0 +1,67 @@
+<html>
+<head>
+ <title>
+   Timezone
+   </title>
+   
+   <body class="bg-light">
+   
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container">
+   
+   <div class="jumbotron text-center">
+   <h1 class="display-4"> <center>Current time is:<span id="time"></center></span></h1>
+      <span id=ct > <center>Timezone here</center> </span><br>
+	
+   <p class="lead"><center> we have got you covered.This is a simple hero unit, a simple jumbotron-syle<br> component calling extra attention
+    featured content or information</center></p>
+   <hr class="my-4">
+   <p><center> We are here to show you the time for different countries</center></p>
+   
+  <center> <input type=button value='Show' onClick=disp_TZ()></center><br>
+	
+	<center><form name=f1>
+	<select name=tz onChange=disp_TZ()>
+	</select>
+	</form></center>
+	
+    <script>
+	
+	function disp_TZ()
+	{
+	tz=f1.tz.options[f1.tz.options.selectedIndex].value
+	str=new Date().toLocaleString("en-NZ",
+	{timeZone:tz, timeZoneName:"short"})
+	document.getElementById('ct').innerHTML=str + " , " +tz
+	display_c()
+	}
+	
+	function display_c()
+	{
+	refresh=1000
+	mytime=setTimeout('disp_TZ()',refresh)
+	}
+	
+	var my_timezones=[
+	'Africa/Abidjan',
+	'Africa/Accra',
+	'Africa/Addis_Ababa'
+	]
+	
+	for(i=0;i<my_timezones.length;i++)
+	{
+	addOption(document.f1.tz,my_timezones[i],my_timezones[i])
+	}
+	function addOption(selectbox,text,value)
+	{
+	var optn=document.createElement("OPTION")
+	optn.text=text
+	optn.value=value
+	selectbox.options.add(optn)
+	}
+
+	</script>
+	</head>
+	
+	</body>
+	</html>
