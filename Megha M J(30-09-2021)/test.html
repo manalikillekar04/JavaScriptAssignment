@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">
+        Welcome to Javascript
+    </p> 
+    <script>
+        document.getElementById('demo').innerHTML= "Welcome to Javascript"
+        /*addition & subtraction*/
+        var number1 = 34;
+        var number2 = 56;
+        console.log(number1 + number2);
+        console.log(number2 - number1);
+        /*multiplication & division */
+        var a=5;
+        var b=10;
+        console.log(a*b);
+        console.log(b/a);
+        /*string*/
+        s='Hello';
+        sr="World...!";
+        console.log(s+sr);
+        /*marks*/
+        var marks = {abhi:34,anu:40,sree:45};
+        console.log(marks);
+        /*boolean*/
+        x=true;
+        y=false;
+        console(x,y);
+        n=null;
+        /*array*/
+        var arr = [1,2,3,4,'abc',76];
+        console.log(arr);
+        /*comparison operator*/
+        var n= 10;
+        var m=20;
+        console.log(n==m);
+        console.log(n>=m);
+        console.log(n<m);
+        /*logical operation*/
+        /*OR*/
+        console.log(true||true);
+        console.log(true||false);
+        console.log(false||true);
+        console.log(false||false);
+        /*AND*/
+        console.log(true&&true);
+        console.log(true&&false);
+        console.log(false&&true);
+        console.log(false&&false);
+        /*function*/
+        avg(a,b){
+            c=(a+b)/2;
+            return c;
+        }
+        c1=avg(10,20);
+        /*conditional statement*/
+        /*if*/
+        var age=30;
+        if(age>18)
+        console.log("you can drink rasna");
+        /*if-else*/
+        if(age>18)
+        console.log("you can drink rasna");
+        else
+        console.log("you can't drink rasna");
+        /*if-else-if ladder*/
+        time=11;
+        if (time < 10) {
+            console.log('Good morning');
+        } else if (time < 20) {
+            console.log("Good day");
+        } else {
+            console.log("Good evening");
+        }
+    </script>
+</body>
+</html>
