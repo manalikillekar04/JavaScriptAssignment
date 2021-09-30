@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <title>Task</title>
+        <script>
+            window.onload = function(){
+                document.getElementById('country').innerHTML = "India";
+                refresh();
+            }
+
+            let a, date, time;
+            const options = {
+                weekday:'long', year:'numeric', month:'long', day:'numeric',
+                hour:'numeric', minute:'numeric', second:'numeric'
+            }
+
+            const date_options = {
+                weekday:'long', year:'numeric', month:'long', day:'numeric'
+            }
+
+            const time_options = {
+                hour:'numeric', minute:'numeric', second:'numeric'
+            }
+
+            function refresh(){
+                var refresh =1000;
+                mytime = setTimeout('couChange()',refresh)
+            }
+
+            var getTimeByName = function timeValue(timezone){
+                options.timeZone = timezone;
+                current_date = new Date();
+                date = current_date.toLocaleDateString(undefined, options);
+                new_date = new Date(date);
+                date_format = new_date.toLocaleDateString(undefined, date_options);
+                time_format = new_date.toLocaleDateString(undefined, time_options);
+                document.getElementById('time').innerHTML = time_format + "<br>on" + date_format;
+                document.getElementById('timezone').innerHTML = timezone;
+            }
+
+            function couChange() {
+                var cName = document.getElementById('countries').value;
+
+                if (cName == 'India'){
+                    document.getElementById('country').innerHTML = cName;
+                    getTimeByName('Asia/Kolkata')
+                }
+
+                else if (cName == 'USA'){
+                    document.getElementById('country').innerHTML = cName;
+                    getTimeByName('America/New_York')
+                }
+
+                else if (cName == 'Russia'){
+                    document.getElementById('country').innerHTML = cName;
+                    getTimeByName('Russia/Moscow')
+                }
+
+                else if (cName == 'China'){
+                    document.getElementById('country').innerHTML = cName;
+                    getTimeByName('China/Shanghai')
+                }
+                else{
+                    document.getElementById('country').innerHTML = cName;
+                    getTimeByName('Asia/Kolkata')
+                }
+            }
+
+            
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse"
+                        id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page"
+                                    href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#"
+                                    id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu"
+                                    aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another
+                                            action</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Something
+                                            else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search"
+                                placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success"
+                                type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4">Current time in <span id="country"></span> : <span id="time"></span></h1>
+                    <p class="lead"> We have got you covered. This is a simple
+                        hero unit, a simple jumbotron-style component for
+                        calling extra attention to featured content or
+                        information.</p>
+                    <hr class="my-4">
+                    <p>We are here to show you the time for different countries.</p>
+                    <div class="row">
+                        <div class="col-md-5 position-relative">
+                            <select class="form-select" aria-label="Default select example" onchange=couChange() id="countries">
+                                <option selected>--Select Country--</option>
+                                <option value="India">India</option>
+                                <option value="USA">USA</option>
+                                <option value="Russia">Russia</option>
+                                <option value="China">China</option>
+                              </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    </body>
+</html>
